@@ -4,7 +4,7 @@ import seaborn as sns
 import streamlit as st
 
 # Load Dataset
-data = pd.read_csv("data_cleaned.csv")
+data = pd.read_csv("https://raw.githubusercontent.com/RafiWidyansyah/Dicoding_Submission/main/data_cleaned.csv")
 data["date"] = pd.to_datetime(data["date"])
 
 st.set_page_config(page_title="Bike-Sharing Dashboard",
