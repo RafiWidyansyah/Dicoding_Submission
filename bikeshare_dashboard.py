@@ -74,13 +74,11 @@ with col3:
     st.metric("Total Registered Rides", value=total_registered_riders)
 
 # Membuat jumlah penyewaan bulanan
-st.subheader('Monthly Rentals')
+st.subheader('Bikeshare Rides per Months')
 fig, ax = plt.subplots(figsize=(24, 8))
-ax.plot(
+ax.bar(
     monthly_rent_df.index,
-    monthly_rent_df['total_count'],
-    marker='o', 
-    linewidth=2,
+    monthly_rent_df['total_count'], 
     color='tab:blue'
 )
 
@@ -91,7 +89,7 @@ plt.title("Total Bikeshare Rides by Month")
 st.pyplot(fig)
 
 # Membuat jumlah penyewaan berdasarkan season
-st.subheader('Seasonly Rentals')
+st.subheader('Bikeshare Rides per Seasons')
 
 fig, ax = plt.subplots(figsize=(16, 8))
 
@@ -120,7 +118,7 @@ plt.title("Total Bikeshare Rides by Seasons")
 st.pyplot(fig)
 
 # Berdasarkan weekday
-st.subheader('Weekday Rentals')
+st.subheader('Bikeshare Rides per Weekday')
 
 fig, ax = plt.subplots(figsize=(16, 8))
 
