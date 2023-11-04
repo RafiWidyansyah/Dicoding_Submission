@@ -95,20 +95,21 @@ fig, ax = plt.subplots(figsize=(16, 8))
 
 sns.barplot(
     x='season',
-    y='total_count',
+    y='registered',
+    label='Registered',
     data=season_rent_df,
     color='tab:blue',
     ax=ax
 )
 
-#sns.barplot(
-#    x='season',
-#    y='casual',
-#    data=season_rent_df,
-#    label='Casual',
-#    color='tab:orange',
-#    ax=ax
-#)
+sns.barplot(
+    x='season',
+    y='casual',
+    data=season_rent_df,
+    label='Casual',
+    color='tab:orange',
+    ax=ax
+)
 
 plt.xlabel("Seasons")
 plt.ylabel("Total Rides")
