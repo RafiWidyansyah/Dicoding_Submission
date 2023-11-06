@@ -23,11 +23,6 @@ def create_monthly_rent_df(df):
     monthly_rent_df = monthly_rent_df.reindex(ordered_months, fill_value=0)
     return monthly_rent_df
 
-# Menyiapkan season_rent_df
-def create_season_rent_df(df):
-    season_rent_df = df.groupby(by='season')[['registered', 'casual']].sum().reset_index()
-    return season_rent_df
-
 # Menyiapkan weekday_rent_df
 def create_weekday_rent_df(df):
     weekday_rent_df = df.groupby(by='weekday').agg({
@@ -53,7 +48,6 @@ with st.sidebar:
 main_data = data[(data["date"] >= str(start_date)) & (data["date"] <= str(end_date))]
 
 # Menyiapkan berbagai dataframe
-season_rent_df = create_season_rent_df(main_data)
 monthly_rent_df = create_monthly_rent_df(main_data)
 weekday_rent_df = create_weekday_rent_df(main_data)
 
@@ -82,19 +76,9 @@ fig, ax = plt.subplots(figsize=(16, 8))
 
 sns.barplot(
     x='season',
-    y='registered',
-    label='Registered',
-    data=season_rent_df,
+    y='total_count',
+    data=data,
     color='tab:blue',
-    ax=ax
-)
-
-sns.barplot(
-    x='season',
-    y='casual',
-    data=season_rent_df,
-    label='Casual',
-    color='tab:orange',
     ax=ax
 )
 
