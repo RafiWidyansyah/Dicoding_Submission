@@ -25,7 +25,7 @@ def create_monthly_rent_df(df):
 
 # Menyiapkan seasons_rent_df
 def create_season_rent_df(df):
-   season_rent_df = df.groupby(by='season').agg({
+    season_rent_df = df.groupby(by='season').agg({
         'total_count': 'sum'
     }).reset_index()
     return season_rent_df
