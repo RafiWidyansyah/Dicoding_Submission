@@ -59,19 +59,6 @@ weekday_rent_df = create_weekday_rent_df(main_data)
 
 # MAIN PAGE
 st.title("Bike-Sharing Dashboard")
-st.markdown("##")
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    total_all_riders = main_data['total_count'].sum()
-    st.metric("Total Rides", value=total_all_riders)
-with col2:
-    total_casual_riders = main_data['casual'].sum()
-    st.metric("Total Casual Rides", value=total_casual_riders)
-with col3:
-    total_registered_riders = main_data['registered'].sum()
-    st.metric("Total Registered Rides", value=total_registered_riders)
 
 # Membuat jumlah penyewaan bulanan
 st.subheader('Bikeshare Rides per Months')
